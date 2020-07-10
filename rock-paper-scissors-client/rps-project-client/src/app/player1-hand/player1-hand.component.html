@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="container-fluid container-sm pt-5 border my-4" style="background-color: lightblue">
+    <h1 class="text-center pt-3 mb-5 font-weight-bold">{{game.player1.username}}, click on your choice</h1>
+    <div class="d-flex justify-content-center">
+      <img
+        src="https://lh3.googleusercontent.com/proxy/fjbQPGBgy419FLPBGM6-wA5W87fjshyqwAaVLSlGOEklva_DBRC_a50jkIrYnTE9uoG9kN_DIYXLmgQ_N7G7D69rdu0KY-oMRZmcO1Estz90S2PxoUR8RYSn_erOeEvYKCVXKv--vOjce8pCUJ6HqfkJ"
+        alt="rock"
+        class="rounded-circle w-25 h-50 mx-auto"
+        (click)="onRock()"
+        style="cursor: pointer"
+      >
+      <img
+        src="https://graphics8.nytimes.com/images/2011/08/21/magazine/21mag-abstractimages-slide-2T4N/21mag-abstractimages-slide-2T4N-jumbo.jpg"
+        alt="paper"
+        class="rounded-circle w-25 h-50 mx-auto"
+        (click)="onPaper()"
+        style="cursor: pointer"
+      >
+      <img
+        src="https://graphics8.nytimes.com/images/2011/08/21/magazine/21mag-abstractimages-slide-IRQ1/21mag-abstractimages-slide-IRQ1-jumbo.jpg"
+        alt="scissors"
+        class="rounded-circle w-25 h-50 mx-auto"
+        (click)="onScissors()"
+        style="cursor: pointer"
+      >
+    </div>
+    <div class="d-flex mt-3">
+      <div class="form-group row w-75 mx-auto mt-5">
+        <label class="col-sm-2 col-form-label font-weight-bold">Game URL</label>
+        <div class="col-sm-8">
+          <input type="text" readonly class="form-control-plaintext bg-white border text-center border-dark" #customUrl
+                 value="{{GAME_API}}">
+          <div class="d-flex align-content-center">
+            <button type="submit" class="btn btn-dark mt-1 w-50"
+                    (click)="copyGameUrl(customUrl)"
+                    value="click to copy">
+              Copy Invitation Link
+            </button>
+          </div>
+          <span
+            class="help-block mt-5 border-dark font-weight-bold"
+            *ngIf="urlCopied"
+            style="background-color: lightblue">
+            URL copied to clipboard
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

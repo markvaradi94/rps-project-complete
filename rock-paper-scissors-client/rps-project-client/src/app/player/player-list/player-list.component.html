@@ -1,0 +1,29 @@
+<div class="container-fluid container-sm mt-3">
+  <form [formGroup]="playerForm" (ngSubmit)="onSubmit()" class="form-group">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      id="username"
+      formControlName="username"
+      class="form-control">
+    <div>
+      <button *ngIf="playerForm.valid" class="btn btn-primary mt-2" type="submit">Submit</button>
+    </div>
+    <label for="queryName" class="mt-3">Player username</label>
+    <input
+      type="text"
+      id="queryName"
+      class="form-control"
+      formControlName="queryName">
+    <button class="btn btn-primary mt-2" type="button" (click)="onGetPlayer()">Get player by username</button>
+    <button class="btn btn-secondary mt-2 ml-2" type="button" (click)="onPlayerHistory()">Player History</button>
+    <button class="btn btn-secondary mt-2 ml-2" type="button" (click)="onGetAllPlayers()">Get All Players</button>
+    <div class="container-fluid container-sm mt-3">
+      <h2>Player List</h2>
+      <div class="container-fluid container-sm" *ngFor="let player of players">
+        {{player.username}}  {{player.id}}
+      </div>
+    </div>
+  </form>
+</div>
+

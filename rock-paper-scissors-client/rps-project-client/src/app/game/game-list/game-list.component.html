@@ -1,0 +1,33 @@
+<div class="container-fluid container-sm mt-3">
+  <form [formGroup]="gameForm" (ngSubmit)="onSubmit()" class="form-group">
+    <label for="player1Username">Player 1 Username</label>
+    <input
+      type="text"
+      id="player1Username"
+      formControlName="player1"
+      class="form-control">
+    <button class="btn btn-success mt-2" type="button" (click)="onAddPlayer1()">Add Player 1</button>
+    <button class="btn btn-primary mt-2" type="button">Rock</button>
+    <button class="btn btn-secondary mt-2 ml-2" type="button">Paper</button>
+    <button class="btn btn-secondary mt-2 ml-2" type="button">Scissors</button>
+    <label for="player2Username">Player 2 Username</label>
+    <input
+      type="text"
+      id="player2Username"
+      formControlName="player2"
+      class="form-control">
+    <button class="btn btn-primary mt-2" type="button">Rock</button>
+    <button class="btn btn-secondary mt-2 ml-2" type="button">Paper</button>
+    <button class="btn btn-secondary mt-2 ml-2" type="button">Scissors</button>
+    <div>
+      <button *ngIf="gameForm.valid" class="btn btn-primary mt-2" type="submit">Submit</button>
+    </div>
+    <button class="btn btn-secondary mt-2" type="button" (click)="onGetAllGames()">Get All Games</button>
+    <div class="container-fluid container-sm mt-3">
+      <h2>Games List</h2>
+      <div class="container-fluid container-sm" *ngFor="let game of games">
+        {{game.player1.username}} {{game.player1Hand}} {{game.player2.username}} {{game.player2Hand}}
+      </div>
+    </div>
+  </form>
+</div>
